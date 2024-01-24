@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CySages Handler Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-okaidia.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+        h1, h2 {
+            color: #61dafb;
+        }
+        pre {
+            background-color: #2b2b2b;
+            padding: 10px;
+            overflow-x: auto;
+            color: #d4d4d4;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CySages Handler Documentation</h1>
+
+    <h2 class="installation">Installation</h2>
+    <pre><code class="language-javascript">npm install cysages-handler@latest</code></pre>
+
+    <h2 class="usage">Usage</h2>
+    <pre><code class="language-javascript">const { CSHandler } = require('cysages-handler');
+
+const config = {
+    token: 'YOUR_BOT_TOKEN',
+    mongoURL: 'YOUR_MONGO_DB_URL',
+    logChannelId: 'YOUR_LOG_CHANNEL_ID',
+    developers: ["DEV1", "DEV2"],
+    prefix: '!'
+}
+
+const bot = new CSHandler(config);
+
+bot.start();</code></pre>
+
+    <h2 class="command-template">Command Template</h2>
+    <pre><code class="language-javascript">const { SlashCommandBuilder, ChatInputCommandInteraction, Message, Client } = require("discord.js");
+
+        module.exports = {
+                slash: {
+                        data: new SlashCommandBuilder()
+                                .setName('')
+                                .setDescription(''),
+                        category: '',
+                        cooldown: 3,
+                        developerOnly: false,
+        
+                        /**
+                         * @param {ChatInputCommandInteraction} interaction
+                         * @param {Client} client
+                         */
+                        async slashInit(interaction, client) {
+                                await interaction.reply('CySages Handler is the best!');
+                        },
+                },
+                message: {
+                        name: '',
+                        description: '',
+                        category: '',
+                        cooldown: 3,
+                        developerOnly: false,
+        
+                        /**
+                         * @param {Message} message
+                         * @param {Client} client
+                         */
+                        async msgInit(message, client) {
+                                await message.reply('CySages Handler is the best!');
+                        },
+                },
+        };
+        </code></pre>
+
+    <h2 class="configuration">Configuration</h2>
+    <pre><code class="language-javascript">token: Your Discord bot token.
+        mongoURL: MongoDB connection URL.
+        commandsFolder: Path to the commands folder. (default: '../../Commands')
+        intents: Array of Discord intents. (default: all intents)
+        partials: Array of Discord partials. (default: all partials)
+        activityName: Default activity name. (default: 'Default Activity')
+        activityType: Default activity type. (default: 'PLAYING')
+        </code></pre>
+        <h2 class="important-note">Important Note</h2>
+<p class="note-content">Make sure to replace placeholder values like <code class="language-javascript">'YOUR_BOT_TOKEN'</code> and <code class="language-javascript">'YOUR_MONGO_DB_URL'</code> with the actual information for your bot. Customize the features, installation instructions, and other sections based on your bot's functionality.</p>
+
+    <h2 class="whats-new">What's New?</h2>
+    <pre><code class="language-javascript">Added prefix system
+Added hybrid commands
+Fixed readme.md
+Added the basic command template
+Fixed bugs</code></pre>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+
+</body>
+</html>
